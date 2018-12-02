@@ -2,7 +2,7 @@
 A Database Code framework to Automate your DBAs, and empower your developers
 This is intended to help DBAs automate away mundane tasks safely and securly.  Things like taking backups, creating new logins, setting up alwaysOn, etc. 
 
-## Whats In thus package
+## Whats In this package
 An inital database, with several core functions, tables, and sprocs to get you started.  
 * Create a login (windows or SQL)
 * Create a Database
