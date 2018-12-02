@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SQLHelpDesk</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{336b9ba6-0432-457f-8ba7-7d44a0767f6c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SQLHelpDesk</RootNamespace>
+    <AssemblyName>SQLHelpDesk</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <AutoUpdateStatisticsAsynchronously>True</AutoUpdateStatisticsAsynchronously>
+    <Recovery>SIMPLE</Recovery>
+    <PageVerify>CHECKSUM</PageVerify>
+    <Trustworthy>True</Trustworthy>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="CMDB" />
+    <Folder Include="HelpDesk" />
+    <Folder Include="PulishFiles" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Sprocs" />
+    <Folder Include="Audit" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="HelpDesk\Sprocs" />
+    <Folder Include="CMDB\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="CMDB\CMDB.sql" />
+    <Build Include="HelpDesk\HelpDesk.sql" />
+    <Build Include="dbo\Tables\BackupLocations.sql" />
+    <Build Include="dbo\Sprocs\AddDatabaseUser.sql" />
+    <Build Include="dbo\Sprocs\AddDbOwnerRoleMember.sql" />
+    <Build Include="Audit\Audit.sql" />
+    <Build Include="dbo\Sprocs\dbo.CreateDatabase.sql" />
+    <Build Include="dbo\Sprocs\LogAction.sql" />
+    <Build Include="dbo\Functions\InjectionCheck.sql" />
+    <Build Include="dbo\Sprocs\VerifyAccess.sql" />
+    <Build Include="dbo\Sprocs\SqlInjectionCheck.sql" />
+    <Build Include="dbo\Sprocs\SetDatabaseRecoveryMode.sql" />
+    <Build Include="HelpDesk\Sprocs\Helpdesk.GetDatabaseInfo.sql" />
+    <Build Include="HelpDesk\Sprocs\HelpDesk.CreateDatabase.sql" />
+    <Build Include="HelpDesk\Sprocs\HelpDesk.CreateLogin.sql" />
+    <Build Include="Audit\HelpDeskLog.sql" />
+    <Build Include="CMDB\Tables\CMDB.AlwaysOnListeners.sql" />
+    <Build Include="CMDB\Tables\CMDB.AlwaysOnDatabases.sql" />
+    <Build Include="CMDB\Tables\CMDB.AlwaysOnGroups.sql" />
+    <Build Include="CMDB\Tables\CMDB.Databases.sql" />
+    <Build Include="CMDB\Tables\CMDB.Hosts.sql" />
+    <Build Include="CMDB\Tables\CMDB.Instances.sql" />
+    <Build Include="CMDB\Tables\CMDB.Logins.sql" />
+    <Build Include="dbo\Sprocs\BackupDatabase.sql" />
+    <Build Include="HelpDesk\Sprocs\Helpdesk.BackupDatabase.sql" />
+    <Build Include="dbo\Sprocs\RestoreDatabase.sql" />
+    <Build Include="HelpDesk\Sprocs\HelpDesk.RestoreDatabase.sql" />
+    <Build Include="dbo\Sprocs\EnableLSBackups.sql" />
+    <Build Include="CMDB\Tables\CMDB.BackupLocations.sql" />
+    <Build Include="HelpDesk\Sprocs\HelpDesk.AddDatabaseUser.sql" />
+    <Build Include="dbo\Functions\dbo.DummyPublishFunction.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\msdb.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\msdb.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>msdb</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PulishFiles\SQLHelpDesk_Laptop.publish.publish.xml" />
+    <None Include="PulishFiles\SQLHelpDesk_Optimus.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="HelpDesk\HelpDeskUsersRole.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Script.PreDeploymentLogins.sql" />
+  </ItemGroup>
+</Project>

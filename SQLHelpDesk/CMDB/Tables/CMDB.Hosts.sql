@@ -1,0 +1,6 @@
+﻿CREATE TABLE [CMDB].[Hosts]
+(
+	[HostId] BIGINT IDENTITY(1,1)
+	CONSTRAINT [PK_Hosts_HostId] PRIMARY KEY CLUSTERED,
+	[FullyQualifiedDomainName] SYSNAME NOT NULL
+)

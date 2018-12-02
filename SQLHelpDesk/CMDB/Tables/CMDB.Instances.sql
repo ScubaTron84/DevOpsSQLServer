@@ -1,0 +1,13 @@
+﻿CREATE TABLE [CMDB].[Instances]
+(
+	[InstanceId] BIGINT IDENTITY(1,1) 
+	CONSTRAINT [PK_Instances_InstanceId] PRIMARY KEY CLUSTERED,
+	InstanceName SYSNAME NOT NULL,
+	HostId BIGINT NOT NULL 
+	CONSTRAINT [FK_Instances_Hosts_HostId] REFERENCES CMDB.Hosts(HostId),
+	SQLVersion VARCHAR(20) NOT NULL,
+	SQLEdition VARCHAR(20) NOT NULL,
+	SQLServiceLoginId BIGINT NOT NULL
+	CONSTRAINT [FK_Instances_Logins_SQLServiceLoginId] FOREIGN KEY REFERENCES CMDB.Logins (LoginId)
+
+)

@@ -1,0 +1,4 @@
+﻿CREATE ROLE [HelpDeskUsers] AUTHORIZATION [dbo];
+GO
+GRANT EXECUTE ON SCHEMA::HelpDesk to [HelpDeskUsers];
+GO

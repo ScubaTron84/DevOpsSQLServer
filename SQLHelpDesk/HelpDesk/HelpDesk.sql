@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [HelpDesk] AUTHORIZATION [dbo];
